@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>陈诗琪 - 个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 30px auto;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .resume-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+        }
+
+        .photo-section {
+            width: 140px;
+            height: 180px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .photo-placeholder {
+            font-size: 60px;
+            color: #e0e0e0;
+        }
+
+        .personal-info {
+            text-align: left;
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .personal-info h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .personal-info p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-item span:first-child {
+            font-weight: 500;
+            color: rgba(255,255,255,0.9);
+            min-width: 70px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2980b9;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 4px;
+            height: 20px;
+            background-color: #3498db;
+            margin-right: 10px;
+            border-radius: 2px;
+        }
+
+        .professional-summary {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+
+        .professional-summary p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+
+        .core-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .skill-badge {
+            background-color: #f0f8ff;
+            padding: 12px 16px;
+            border-radius: 25px;
+            text-align: center;
+            border: 1px solid #d0e6ff;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background-color: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+        }
+
+        .skill-badge span {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2980b9;
+        }
+
+        .item {
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+
+        .item::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 15px;
+            width: 2px;
+            height: calc(100% - 10px);
+            background-color: #e0e0e0;
+        }
+
+        .item:last-child::after {
+            display: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .item-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .item-date {
+            font-size: 13px;
+            color: #6c757d;
+            background-color: #f8f9fa;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .item-subtitle {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .item-description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            margin-left: 10px;
+        }
+
+        .item-description ul {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .item-description li {
+            position: relative;
+            padding-left: 16px;
+            margin-bottom: 6px;
+        }
+
+        .item-description li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .achievement {
+            background-color: #f0f8ff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid #3498db;
+        }
+
+        .achievement p {
+            font-size: 13px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .certificate-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 6px 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .certificate-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .certificate-date {
+            font-size: 13px;
+            color: #6c757d;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 15px;
+        }
+
+        .skill-category h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 6px;
+            margin-left: 15px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "▹";
+            color: #3498db;
+            position: absolute;
+            left: -15px;
+            font-size: 10px;
+        }
+
+        .self-evaluation {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+            border-left: 4px solid #3498db;
+        }
+
+        .training-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #9b59b6;
+        }
+
+        .training-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+
+        .training-date {
+            font-size: 13px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .training-description {
+            font-size: 13px;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .personal-info {
+                text-align: center;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .core-skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media print {
+            .container {
+                box-shadow: none;
+                margin: 0;
+            }
+
+            .header {
+                background: #fff;
+                color: #333;
+                border-bottom: 2px solid #3498db;
+            }
+
+            .personal-info h1 {
+                color: #333;
+            }
+
+            .personal-info p {
+                color: #666;
+            }
+
+            .contact-info {
+                color: #666;
+            }
+
+            .contact-item span:first-child {
+                color: #333;
+            }
+
+            .section-title {
+                border-bottom: 1px solid #ddd;
+            }
+
+            .skill-badge {
+                border: 1px solid #ddd;
+                background-color: #f9f9f9;
+            }
+
+            .skill-badge span {
+                color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="resume-title">个人简历</div>
+            <div class="header-content">
+                <div class="photo-section">
+                    <div class="photo-placeholder">�‍💻</div>
+                </div>
+                <div class="personal-info">
+                    <h1>陈诗琪</h1>
+                    <p>计算机软件工程 | 电子科技大学成都学院 | 大二学生</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>邮箱：</span>
+                            <span>2475170023@qq.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>电话：</span>
+                            <span>157XXXX1952</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>地点：</span>
+                            <span>成都市</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>GitHub：</span>
+                            <span>Bohe-17</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>民族：</span>
+                            <span>汉</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>出生日期：</span>
+                            <span>2006.9.1</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>政治面貌：</span>
+                            <span>共青团员</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">职业概述</h2>
+                <div class="professional-summary">
+                    <p>计算机软件工程专业大二学生，对前端开发和全栈技术充满热情，具备扎实的编程基础和良好的学习能力。在校期间积极参与项目实践，积累了一定的开发经验，熟悉前端和后端技术栈。具有较强的团队协作精神和问题解决能力，注重代码质量和用户体验。目标是成为一名优秀的全栈开发工程师，为企业的技术创新和产品发展贡献力量。</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">核心技能</h2>
+                <div class="core-skills">
+                    <div class="skill-badge"><span>JavaScript/TypeScript</span></div>
+                    <div class="skill-badge"><span>HTML5/CSS3</span></div>
+                    <div class="skill-badge"><span>React</span></div>
+                    <div class="skill-badge"><span>Node.js</span></div>
+                    <div class="skill-badge"><span>Python</span></div>
+                    <div class="skill-badge"><span>MySQL</span></div>
+                    <div class="skill-badge"><span>Git版本控制</span></div>
+                    <div class="skill-badge"><span>Linux操作系统</span></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">教育背景</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">电子科技大学成都学院</div>
+                        <div class="item-date">2024年9月 - 至今</div>
+                    </div>
+                    <div class="item-subtitle">计算机软件工程 | 本科</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>主修课程：数据结构、算法设计与分析、计算机网络、操作系统、数据库原理、软件工程、面向对象程序设计</li>
+                            <li>平均学分绩点：3.8/4.0，专业排名前10%</li>
+                            <li>获得荣誉：优秀学生奖学金、三好学生称号</li>
+                            <li>参与活动：计算机协会成员，多次参加编程竞赛和技术讲座</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">成都大学附属中学</div>
+                        <div class="item-date">2021年9月 - 2024年6月</div>
+                    </div>
+                    <div class="item-subtitle">高中</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>理科重点班，高考成绩优异</li>
+                            <li>担任班长，组织能力突出</li>
+                            <li>多次获得校级三好学生称号</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">育英中学 / 成都大学附属中学</div>
+                        <div class="item-date">2018年9月 - 2021年6月</div>
+                    </div>
+                    <div class="item-subtitle">初中</div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">融天小学</div>
+                        <div class="item-date">2012年9月 - 2018年6月</div>
+                    </div>
+                    <div class="item-subtitle">小学</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">实习经历</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">前端开发实习生</div>
+                        <div class="item-date">2025年7月 - 2025年9月</div>
+                    </div>
+                    <div class="item-subtitle">科技公司 | 成都</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>参与公司官网的前端开发与维护，负责页面布局和交互功能实现</li>
+                            <li>使用HTML5、CSS3、JavaScript和Bootstrap实现响应式页面设计</li>
+                            <li>协助团队完成需求分析和技术文档编写，参与代码审查</li>
+                            <li>优化页面加载速度和用户体验，提升网站性能</li>
+                        </ul>
+                        <div class="achievement">
+                            <p>• 独立完成3个页面的开发，代码质量得到团队认可</p>
+                            <p>• 优化页面加载速度，减少了30%的加载时间</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">项目经历</h2>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">个人博客系统</div>
+                        <div class="item-date">2025年3月 - 2025年5月</div>
+                    </div>
+                    <div class="item-subtitle">独立开发</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>技术栈：HTML5、CSS3、JavaScript、Node.js、Express、MongoDB</li>
+                            <li>实现功能：用户注册登录、文章发布与管理、评论系统、标签管理、响应式设计</li>
+                            <li>项目架构：前后端分离，模块化设计，代码结构清晰</li>
+                        </ul>
+                        <div class="achievement">
+                            <p>• 完成完整的博客系统，支持所有核心功能</p>
+                            <p>• 代码托管在GitHub，获得10+ star</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-header">
+                        <div class="item-title">贪吃蛇游戏</div>
+                        <div class="item-date">2025年1月 - 2025年2月</div>
+                    </div>
+                    <div class="item-subtitle">课程项目</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>技术栈：HTML5 Canvas、JavaScript</li>
+                            <li>核心功能：蛇的移动、食物生成、碰撞检测、游戏结束判断</li>
+                            <li>辅助功能：难度设置、分数记录、游戏暂停/继续</li>
+                            <li>界面设计：现代化UI，响应式布局，流畅的动画效果</li>
+                        </ul>
+                        <div class="achievement">
+                            <p>• 课程项目评分优秀，获得老师和同学的好评</p>
+                            <p>• 实现了完整的游戏逻辑和用户交互</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">专业技能</h2>
+                <div class="skills">
+                    <div class="skill-category">
+                        <h4>编程语言</h4>
+                        <ul class="skill-list">
+                            <li>JavaScript/TypeScript：熟练</li>
+                            <li>Python：熟练</li>
+                            <li>Java：良好</li>
+                            <li>C/C++：基础</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>前端技术</h4>
+                        <ul class="skill-list">
+                            <li>HTML5/CSS3：熟练</li>
+                            <li>JavaScript (ES6+)：熟练</li>
+                            <li>React：良好</li>
+                            <li>Bootstrap：熟练</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>后端技术</h4>
+                        <ul class="skill-list">
+                            <li>Node.js：良好</li>
+                            <li>Express：良好</li>
+                            <li>MySQL：良好</li>
+                            <li>MongoDB：基础</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>其他技能</h4>
+                        <ul class="skill-list">
+                            <li>Git版本控制：熟练</li>
+                            <li>Linux操作系统：基础</li>
+                            <li>UI/UX设计基础：良好</li>
+                            <li>英语：CET-4，读写能力良好</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">技能证书</h2>
+                <div class="certificate-item">
+                    <div class="certificate-name">全国计算机等级考试二级证书</div>
+                    <div class="certificate-date">2025年6月</div>
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-name">英语四级证书</div>
+                    <div class="certificate-date">2024年12月</div>
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-name">普通话二级乙等证书</div>
+                    <div class="certificate-date">2025年3月</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">培训经历</h2>
+                <div class="training-item">
+                    <div class="training-name">Web前端开发实战培训</div>
+                    <div class="training-date">2025年1月 - 2025年2月</div>
+                    <div class="training-description">学习HTML5、CSS3、JavaScript、React等前端技术，完成多个实战项目</div>
+                </div>
+                <div class="training-item">
+                    <div class="training-name">Python全栈开发课程</div>
+                    <div class="training-date">2024年8月 - 2024年9月</div>
+                    <div class="training-description">学习Python基础、Django框架、数据库设计等全栈开发技术</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">自我评价</h2>
+                <div class="self-evaluation">
+                    作为计算机软件工程专业的大二学生，我对前端开发和全栈技术充满热情。具有良好的学习能力和团队协作精神，能够快速适应新环境和新技术。在校期间，我努力学习专业知识，积极参与项目实践，积累了一定的开发经验。我注重代码质量和用户体验，善于分析问题并寻找解决方案。
+                    <br><br>
+                    我性格开朗，沟通能力强，能够与团队成员良好协作。我具有较强的责任心和抗压能力，能够在 deadlines前完成任务。未来，我希望能够在前端开发或全栈开发领域继续深造，不断提升自己的技术水平，为公司的发展贡献自己的力量。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
